@@ -1,4 +1,4 @@
-# Sudoku_Solver | Backtracking Algorithm | pygame GUI
+# Sudoku_Solver  |  Backtracking Algorithm  |  pygame GUI
   Sudoku-solving program created using Python v3.8 in Vim text editor to learn, work, and experiment with a backtracking algorithm implementation.
 Code written in Python, GUI made with pygame.
 
