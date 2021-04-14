@@ -5,7 +5,7 @@ import time
 pygame.font.init()
 window = pygame.display.set_mode((500, 600))
 font_one = pygame.font.SysFont("arial", 20)
-font_two = pygame.font.SysFont("arial", 30)
+font_two = pygame.font.SysFont("arial", 20)
 
 
 def initialize_timer(secs):
@@ -19,13 +19,13 @@ def initialize_timer(secs):
 def initialize_window(screen, board, timer, strikes):
     screen.fill((255, 255, 255))
     txt = font_one.render(initialize_timer(timer), 1, (0, 0, 0))
-    window.blit(txt, (400, 520))
-    text_one = font_two.render("R = Reset Board | S = Solve Board | X = Exit Game", 1, (0, 0, 0))
-    window.blit(text_one, (20, 520))
+    window.blit(txt, (400, 570))
+    options = font_two.render("R = Reset Board | S = Solve Board | X = Exit Game", 1, (0, 0, 0))
+    window.blit(options, (20, 510))
     txt = font_one.render("X " * strikes, 1, (255, 0, 0))
     window.blit(txt, (10, 570))
     txt = font_one.render("Strikes:{}".format(strikes), 1, (255, 0, 0))
-    window.blit(txt, (250, 550))
+    window.blit(txt, (390, 540))
     board.draw()
 
 
@@ -292,11 +292,11 @@ def main():
                     i, j = board.selected
                     if board.squares[i][j].temp != 0:
                         if board.position(board.squares[i][j].temp):
-                            txt = font_one.render("Correct! Strikes:{}".format(strikes), 1, (0, 255, 0))
+                            txt = font_one.render("Correct! Strikes:{}".format(strikes), 1, (0, 0, 0))
                             window.blit(txt, (250, 570))
                         else:
                             strikes += 1
-                            if strikes == 5 and not(board.verify_completion()):
+                            if strikes == 5 and not board.verify_completion():
                                 txt = font_one.render("Game Over", 1, (0, 0, 0))
                                 window.blit(txt, (250, 570))
                                 play = False
